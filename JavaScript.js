@@ -7,6 +7,7 @@ function hideMenu()
 {
     navLinks.style.right = "0px";
 }
+
 const toTop = document.querySelector(".topBtn");
 
 window.addEventListener("scroll", () => 
