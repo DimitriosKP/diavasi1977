@@ -1,4 +1,17 @@
 var navLinks = document.getElementById("navLinks");
+
+function toggleMenu() {
+    var menuBox = document.getElementById('navLinks');    
+    if(menuBox.style.display == "block") { // if is menuBox displayed, hide it
+      menuBox.style.display = "none";
+      document.getElementById('bars').classList.remove("bars-close");
+    }
+    else { // if is menuBox hidden, display it
+      menuBox.style.display = "block";
+      document.getElementById('bars').classList.add("bars-close");
+    }
+  }
+
 function showMenu()
 {
     navLinks.style.right = "200px";
@@ -7,7 +20,6 @@ function hideMenu()
 {
     navLinks.style.right = "0px";
 }
-
 const toTop = document.querySelector(".topBtn");
 
 window.addEventListener("scroll", () => 

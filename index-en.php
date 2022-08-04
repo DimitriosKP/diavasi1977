@@ -43,7 +43,7 @@
             <nav>
                 <a href="index.php"><img src="images/logo.png"></a>
                 <div class="nav-links" id="navLinks">
-                <i class="fas fa-bars" onclick="hideMenu()"></i>
+                <i class="fas fa-bars" onclick="showMenu()"></i>
                     <ul>
                         <li><a href="index.php">Homepage</a></li>
                         <!--<li><a href="menu.php">Μενού</a></li>-->
@@ -52,7 +52,7 @@
                         <li><a href="index-en.php" language='english'>GR</a></li>
                     </ul>
                 </div>
-                <i class="fas fa-bars" id="bars" onclick="showMenu()"></i>
+                <i class="fas fa-bars" id="bars" onclick="hideMenu()"></i>
             </nav>
             <video src="images/video.mp4" muted loop autoplay></video>
             <div class="overlay"></div>

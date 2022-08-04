@@ -21,7 +21,7 @@ body{
     background-position: center;
     background-size: cover;
     position: relative;
-
+    z-index: 100;
 }
 
 .header video{
@@ -112,10 +112,16 @@ nav img{
     color: #fff;
 }
 
-nav .fa{
+nav .fas{
     display: none;
     z-index: 1;
 }
+nav .bars-close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
 
 
 /*--------MENU--------*/
@@ -387,7 +393,7 @@ iframe{
 
 /*----------MEDIA----------*/
 
-@media(max-width: 320px){
+@media(max-width: 600px){
     body{
         overflow-x: hidden;
     }
@@ -411,7 +417,8 @@ iframe{
         z-index: 1;
         transition: 1s;
     }
-    nav .fa{
+    
+    nav .fas#bars{
         display: block;
         color: #fff;
         margin: 10px;
@@ -443,39 +450,89 @@ iframe{
     }
     .nav-links{
         position: absolute;
-        background-color: #262729;
+        background: #466edd;
         height: 100vh;
+        width: 220px;
         top: 0;
-        display: flex;
-        right: 0px;
-        align-items: center;
+        right:0px;
+        text-align: left;
         z-index: 1;
-        width: 50%;
-        flex-direction: column;
-        transition: transform 0.5s ease-in;
-        transform: translateX(100%);
+        transition: 1s;
     }
     .topBtn{
         visibility: hidden;
     }
-    .col-sm-3{
-        height: 100px;
+    
+    nav .fas#bars{
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    .nav-links ul{
+        padding: 10px;
     }
     .col-sm-4{
-        height: 100px;
+        height: 500px;
+    }
+    .col-sm-4 img{
+        height: 200px;
+    }
+    .gotopbtn{
+        visibility: hidden;
     }
 }
 @media(max-width: 1000px){
-    .row{
-        flex-direction: column;
+    body{
+        overflow-x: hidden;
+    }
+    .info h1{
+        font-size: 20px;
+    }
+    .contact a{
+        font-size: 8px;
+    }
+    .nav-links{
+        position: absolute;
+        background: #466edd;
+        height: 100vh;
+        width: 220px;
+        top: 0;
+        right:0px;
+        text-align: left;
+        z-index: 1;
+        transition: 1s;
+    }
+    
+    nav .fas#bars{
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    .nav-links ul{
+        padding: 10px;
+    }
+    .col-sm-4{
+        height: 500px;
     }
     .col-sm-4 img{
-        height: 400px;
+        height: 200px;
+    }
+    .gotopbtn{
+        visibility: hidden;
     }
 }
 @media(min-width:1600px){
     .col-sm-4 img{
         height: 400px;
+    }
+    nav .fas{
+        display: none;
+        z-index: 1;
+        right: 200px;
     }
 }
 @media(min-width:2000px){
