@@ -42,7 +42,7 @@
         <section class="header">
             <nav>
                 <a href="index.php"><img src="images/logo.png"></a>
-                <div class="nav-links" id="navLinks">
+                <div class="nav-links hidden-sm" id="navLinks">
                 <i class="fas fa-bars" onclick="showMenu()"></i>
                     <ul>
                         <li><a href="index.php">Homepage</a></li>

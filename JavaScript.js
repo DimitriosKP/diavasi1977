@@ -2,12 +2,15 @@ var navLinks = document.getElementById("navLinks");
 
 function toggleMenu() {
     var menuBox = document.getElementById('navLinks');    
-    if(menuBox.style.display == "block") { // if is menuBox displayed, hide it
-      menuBox.style.display = "none";
-      document.getElementById('bars').classList.remove("bars-close");
+    //if(menuBox.style.display == "block") { // if is menuBox displayed, hide it
+      if(menuBox.classList.contains("hidden-sm") == false){
+        //menuBox.style.display = "none";
+        menuBox.classList.add("hidden-sm");
+        document.getElementById('bars').classList.remove("bars-close");
     }
     else { // if is menuBox hidden, display it
-      menuBox.style.display = "block";
+      //menuBox.style.display = "block";
+      menuBox.classList.remove("hidden-sm");
       document.getElementById('bars').classList.add("bars-close");
     }
   }

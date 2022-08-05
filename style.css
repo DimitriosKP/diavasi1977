@@ -391,11 +391,22 @@ iframe{
     color: #fff;
 }
 
+.hidden-sm{
+    display: block;
+    opacity: 1;
+    z-index: 1;
+}
+
 /*----------MEDIA----------*/
 
 @media(max-width: 600px){
     body{
         overflow-x: hidden;
+    }
+    .hidden-sm{
+        transition: opacity 1s ease-out;
+        opacity: 0;
+        z-index: -1;
     }
     .info h1{
         font-size: 20px;
@@ -416,6 +427,7 @@ iframe{
         text-align: left;
         z-index: 1;
         transition: 1s;
+        display: none;
     }
     
     nav .fas#bars{
@@ -429,10 +441,14 @@ iframe{
         padding: 10px;
     }
     .col-sm-4{
-        height: 500px;
+        height: 10px;
+        display: block;
+    }
+    .row{
+        display: block;
     }
     .col-sm-4 img{
-        height: 200px;
+        height: 10px;
     }
     .gotopbtn{
         visibility: hidden;
@@ -441,6 +457,11 @@ iframe{
 @media(max-width: 800px){
     body{
         overflow-x: hidden;
+    }
+    .hidden-sm{
+        transition: opacity 1s ease-out;
+        opacity: 0;
+        z-index: -1;
     }
     .info h1{
         font-size: 20px;
@@ -458,6 +479,8 @@ iframe{
         text-align: left;
         z-index: 1;
         transition: 1s;
+        display: none;
+
     }
     .topBtn{
         visibility: hidden;
@@ -474,10 +497,14 @@ iframe{
         padding: 10px;
     }
     .col-sm-4{
-        height: 500px;
+        height: 50px;
+        display: block;
+    }
+    .row{
+        display: block;
     }
     .col-sm-4 img{
-        height: 200px;
+        height: 400px;
     }
     .gotopbtn{
         visibility: hidden;
@@ -487,12 +514,21 @@ iframe{
     body{
         overflow-x: hidden;
     }
+    .hidden-sm{
+        transition: opacity 1s ease-out;
+        opacity: 0;
+        z-index: -1;
+    }
     .info h1{
-        font-size: 20px;
+        font-size: 30px;
+    }
+    .info p{
+        font-size: 10px;
     }
     .contact a{
         font-size: 8px;
     }
+
     .nav-links{
         position: absolute;
         background: #466edd;
@@ -503,6 +539,7 @@ iframe{
         text-align: left;
         z-index: 1;
         transition: 1s;
+        display: none;
     }
     
     nav .fas#bars{
@@ -515,11 +552,16 @@ iframe{
     .nav-links ul{
         padding: 10px;
     }
+
     .col-sm-4{
         height: 500px;
+        display: block;
+    }
+    .row{
+        display: block;
     }
     .col-sm-4 img{
-        height: 200px;
+        height: 470px;
     }
     .gotopbtn{
         visibility: hidden;
