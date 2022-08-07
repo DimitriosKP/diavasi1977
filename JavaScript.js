@@ -1,19 +1,17 @@
-var navLinks = document.getElementById("navLinks");
-
-function toggleMenu() {
+//var navLinks = document.getElementById("navLinks");
+                                                                                     
+function toggleMenu(){
     var menuBox = document.getElementById('navLinks');    
     //if(menuBox.style.display == "block") { // if is menuBox displayed, hide it
-      if(menuBox.classList.contains("hidden-sm") == false){
-        //menuBox.style.display = "none";
+    if(menuBox.classList.contains("hidden-sm") == false){
         menuBox.classList.add("hidden-sm");
         document.getElementById('bars').classList.remove("bars-close");
     }
-    else { // if is menuBox hidden, display it
-      //menuBox.style.display = "block";
-      menuBox.classList.remove("hidden-sm");
-      document.getElementById('bars').classList.add("bars-close");
-    }
-  }
+    else{ // if is menuBox hidden, display it
+    menuBox.classList.remove("hidden-sm");
+    document.getElementById('bars').classList.add("bars-close");
+    } 
+}
 
 function showMenu()
 {
@@ -36,20 +34,20 @@ window.addEventListener("scroll", () =>
         toTop.classList.remove("active");
     }
 })   
-document.querySelector('video').playbackRate = 0.9;
+    document.querySelector('video').playbackRate = 0.9;
 
-const Logo = document.querySelector(".backlogo");
+    const Logo = document.querySelector(".backlogo");
 
-window.addEventListener("scroll", () => 
-{
-    if (window.pageYOffset > 200)
+    window.addEventListener("scroll", () => 
     {
-        Logo.classList.add("active");
-    }
-    else 
-    {
-        Logo.classList.remove("active");
-    }
-})  
-
-
+        if(Logo){
+            if (window.pageYOffset > 200)
+            {
+                Logo.classList.add("active");
+            }
+            else 
+            {
+                Logo.classList.remove("active");
+            }
+        }
+    })  

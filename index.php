@@ -28,7 +28,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="with=device-width, initial-scale=1.0">
+        <meta charset="utf-8" />
+        <meta name="description" content="Ψητοπωλείο ΔΙΑΒΑΣΗ από το 1977. Τα καλύτερα σουτζουκάκια!" /> 
+        <link href="images/favicon.ico" rel="shortcut icon" />
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Διάβαση 1977">
+        <meta name="twitter:description" content="Ψητοπωλείο ΔΙΑΒΑΣΗ από το 1977. Τα καλύτερα σουτζουκάκια!">
+        <meta name="twitter:image" content="https://diavasi1977.eu/images/image9.JPG"> 
+
+        <!-- Open Graph data -->
+        <meta property="og:title" content="Διάβαση 1977" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.diavasi1977.eu/" />
+        <meta property="og:image" content="https://diavasi1977.eu/images/image9.JPG" />
+        <meta property="og:description" content="Ψητοπωλείο ΔΙΑΒΑΣΗ από το 1977. Τα καλύτερα σουτζουκάκια!" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Διάβαση 1977</title>
         <link rel="stylesheet" href="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -42,7 +58,7 @@
         <section class="header">
             <nav>
                 <a href="index.php"><img src="images/logo.png"></a>
-                <div class="nav-links" id="navLinks">
+                <div class="nav-links hidden-sm" id="navLinks">
                     <i class="fas fa-bars" onclick="hideMenu()"></i>
                     <ul>
                         <li><a href="index.php">Αρχική</a></li>
@@ -52,16 +68,13 @@
                         <li><a href="index-en.php" language='english'>EN</a></li>
                     </ul>
                 </div>
-                <i class="fas fa-bars" id="bars" onclick="toggleMenu()"></i>
+                <i class="fas fa-bars" id="bars" onclick="toggleMenu()">
             </nav>
             <video src="images/video.mp4" muted loop autoplay></video>
             <div class="overlay"></div>
         </section>
-        <!--<div class="backlogo">
-            <img src="images/logo.png" style="position: fixed; align-items: center; opacity: 0.010;">
-        </div>-->
 
-        <!----------INFO------------>
+        <!----------INFO----------->
         <div class="info">
             <section class="cards-area" id="info-section">
                 <h1>Ποιοί είμαστε</h1><br>
@@ -111,15 +124,15 @@
                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12112.08614860259!2d22.947726!3d40.629407!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x48a806ff0ab3b407!2sAFES%20CHANTAKI%20O.E.%7C%7CDIAVASI%201977!5e0!3m2!1sen!2sgr!4v1639141869970!5m2!1sen!2sgr" width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>                    
                         <p><i class="fas fa-map-marker-alt " style="color: #000;"></i><a href="https://goo.gl/maps/sUrVfhtbSKUC9ACv5" target="_blanc"> Παύλου Μελά 13, Θεσσαλονίκη 54622</a><br><br> </p>
                         <i class="fas fa-phone " style="color: #000; transform: rotateY(180deg);"></i><a href="tel:+30 +30 2310220596"> +30 2310 220596</a><br><br> 
-                        <i class="fas fa-envelope " style="color: #000;"></i><a href="https://mail.google.com/mail/u/0/#inbox?compose=VpCqJTDGxfFzQsZtKhxbJMVWmmfshqTHqGsmkXZfgKTTXMfgxkhnxvbSscRDXpggXlDhRtb"> diavasi1977@gmail.com</a>
+                        <i class="fas fa-envelope " style="color: #000;"></i><a href="https://mail.google.com/mail/u/0/#inbox?
+                        compose=VpCqJTDGxfFzQsZtKhxbJMVWmmfshqTHqGsmkXZfgKTTXMfgxkhnxvbSscRDXpggXlDhRtb"> diavasi1977@gmail.com</a>
                 </div>
             </div>
         </section>
         <br>
         
-        <?php require_once 'rating.php'; ?>
-        
-        <?php require_once 'footer.php'; ?>
+        <?php include 'rating.php'; ?> 
+        <?php include 'footer.php'; ?>
 
         <a href="#" class="topBtn"><i class="fas fa-chevron-up"></i></a>
         

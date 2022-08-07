@@ -28,6 +28,22 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8" />
+        <meta name="description" content="Ψητοπωλείο ΔΙΑΒΑΣΗ από το 1977. Τα καλύτερα σουτζουκάκια!" /> 
+        <link href="favicon.ico" rel="shortcut icon" />
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Διάβαση 1977">
+        <meta name="twitter:description" content="Ψητοπωλείο ΔΙΑΒΑΣΗ από το 1977. Τα καλύτερα σουτζουκάκια!">
+        <meta name="twitter:image" content="https://diavasi1977.eu/images/image9.JPG"> 
+
+        <!-- Open Graph data -->
+        <meta property="og:title" content="Διάβαση 1977" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.diavasi1977.eu/" />
+        <meta property="og:image" content="https://diavasi1977.eu/images/image9.JPG" />
+        <meta property="og:description" content="Ψητοπωλείο ΔΙΑΒΑΣΗ από το 1977. Τα καλύτερα σουτζουκάκια!" />
+        
         <meta name="viewport" content="with=device-width, initial-scale=1.0">
         <title>Diavasi 1977</title>
         <link rel="stylesheet" href="style.css">
