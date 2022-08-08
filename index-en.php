@@ -30,7 +30,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="description" content="Ψητοπωλείο ΔΙΑΒΑΣΗ από το 1977. Τα καλύτερα σουτζουκάκια!" /> 
-        <link href="favicon.ico" rel="shortcut icon" />
+        <link href="images/favicon.ico" rel="shortcut icon" />
         <!-- Twitter Card data -->
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="Διάβαση 1977">
@@ -65,7 +65,7 @@
                         <!--<li><a href="menu.php">Μενού</a></li>-->
                         <li><a href="#info-section">About us</a></li>
                         <li><a href="#contact-section">Contact</a></li>
-                        <li><a href="index-en.php" language='english'>GR</a></li>
+                        <li><a href="index.php" language='english'>GR</a></li>
                     </ul>
                 </div>
                 <i class="fas fa-bars" id="bars" onclick="hideMenu()"></i>
@@ -131,9 +131,9 @@
         </section>
         <br>
         
-        <?php require_once 'rating.php'; ?>
+        <?php include 'rating-en.php'; ?>
         
-        <?php require_once 'footer.php'; ?>
+        <?php include 'footer.php'; ?>
 
         <a href="#" class="topBtn"><i class="fas fa-chevron-up"></i></a>
         

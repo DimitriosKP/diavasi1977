@@ -68,7 +68,7 @@
                         <li><a href="index-en.php" language='english'>EN</a></li>
                     </ul>
                 </div>
-                <i class="fas fa-bars" id="bars" onclick="toggleMenu()">
+                <i class="fas fa-bars" id="bars" onclick="toggleMenu()"></i>
             </nav>
             <video src="images/video.mp4" muted loop autoplay></video>
             <div class="overlay"></div>

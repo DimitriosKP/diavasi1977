@@ -9,5 +9,5 @@
 
     <br><br>
     <hr>
-    <i class="fa fa-copyright"><?php echo "Copyrights 2021 - ", date("Y");?></i>
+    <i class="fa fa-copyright"><?php echo "Copyrights ", date("Y");?></i>
 </section>
