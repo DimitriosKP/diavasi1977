@@ -59,7 +59,7 @@
             <nav>
                 <a href="index.php"><img src="images/logo.png"></a>
                 <div class="nav-links hidden-sm" id="navLinks">
-                    <i class="fas fa-bars" onclick="hideMenu()"></i>
+                    <i class="fas fa-bars" onclick="toggleMenu()"></i>
                     <ul>
                         <li><a href="index.php">Αρχική</a></li>
                         <!--<li><a href="menu.php">Μενού</a></li>-->
