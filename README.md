@@ -2,7 +2,7 @@
 This is a website for Diavasi1977, a restaurant located in Thessaloniki, Greece. The website provides visitors with information about the restaurant's history, location, and contact details, as well as a section for visitors to rate the restaurant.
 
 #### Accessing the Website
-- The website is hosted at diavasi1977.thsk.eu.
+- Visit the website at [diavasi1977.thsk.eu](http://diavasi1977.thsk.eu)
 
 #### Technologies Used
 This website was built using the following technologies:
