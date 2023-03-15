@@ -1,5 +1,5 @@
 <?php
-    $conn = new mysqli('localhost', 'root', '', 'rating');
+    $conn = new mysqli('localhost', 'root', '', 'db_peftitsis');
 
     if (isset($_POST['save'])) {
         $uID = $conn->real_escape_string($_POST['uID']);
@@ -7,19 +7,19 @@
         $ratedIndex++;
 
         if (!$uID) {
-            $conn->query("INSERT INTO stars (rateIndex) VALUES ('$ratedIndex')");
-            $sql = $conn->query("SELECT id FROM stars ORDER BY id DESC LIMIT 1");
+            $conn->query("INSERT INTO rating (rateIndex) VALUES ('$ratedIndex')");
+            $sql = $conn->query("SELECT id FROM rating ORDER BY id DESC LIMIT 1");
             $uData = $sql->fetch_assoc();
             $uID = $uData['id'];
         } else
-            $conn->query("UPDATE stars SET rateIndex='$ratedIndex' WHERE id='$uID'");
+            $conn->query("UPDATE rating SET rateIndex='$ratedIndex' WHERE id='$uID'");
 
         exit(json_encode(array('id' => $uID)));
     }
-    $sql = $conn->query("SELECT id FROM stars");
+    $sql = $conn->query("SELECT id FROM rating");
     $numR = $sql->num_rows;
 
-    $sql = $conn->query("SELECT SUM(rateIndex) AS total FROM stars");
+    $sql = $conn->query("SELECT SUM(rateIndex) AS total FROM rating");
     $rData = $sql->fetch_array();
     $total = $rData['total'];
 
@@ -53,6 +53,9 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@100;200;300;500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
     </head>
     <body>
         <section class="header">
@@ -70,6 +73,9 @@
                 </div>
                 <i class="fas fa-bars" id="bars" onclick="toggleMenu()"></i>
             </nav>
+            <div class="image">
+                <img src="images/diavasi-1.jpg" alt="" style="object-fit: cover;">                   
+            </div>
             <video src="images/video.mp4" muted loop autoplay></video>
             <div class="overlay"></div>
         </section>
@@ -80,20 +86,24 @@
                 <h1>Ποιοί είμαστε</h1><br>
                 <p class="text-justify">
                     Μια από τις καθιερωµένες αξίες για καλό φαγητό στην πόλη, το εστιατόριο Διάβαση συνεχίζει από το 1977 
-                    να δηµιουργεί... πιστούς θαµώνες. Ξεκινώντας από τον Άγγελο Χαντακή, έναν από τους καλύτερους ψήστες στη Θεσσαλονίκη, 
-                    master του γύρου, σήµερα τα ηνία έχει αναλάβει η... επόµενη γενιά, 
-                    στην οποία ο ιδρυτής έχει µεταλαµπαδεύσει την εµπειρία τόσων χρόνων αλλά και το µεράκι του. 
-                    Συνδυάζοντας παραδοσιακά και µοντέρνα στοιχεία στην αισθητική του, 
-                    ξεχωρίζει εδώ και δεκαετίες για τα ζουµερά και πεντανόστιµα σουτζουκάκια του και φυσικά τον... διάσηµο γύρο του, 
-                    που συνοδεύονται άψογα από σπιτικές πατάτες, χειροποίητη ρώσικη αλλά και πληθωρικές δροσερές σαλάτες, 
-                    όλα από αγνές πρώτες ύλες. Δεν υπάρχει επώνυµος και µη Θεσσαλονικιός που να µην έχει περάσει από εδώ και να µην έχει φύγει µε τις 
-                    καλύτερες εντυπώσεις για την ποιότητα, τις χορταστικές µερίδες και τις εξαιρετικές τιµές. Στα συν η ενηµερωµένη κάβα ελληνικών κυρίως 
-                    κρασιών. Ο όμορφα διακοσμημένος χώρος, η υψηλού επιπέδου εξυπηρέτηση σε συνδυασμό με τις υψηλού επιπέδου γεύσεις θα σας 
-                    οδηγήσουν σε μια οικειότητα από την πρώτη κιόλας στιγμή. 
-                    Σπεσιαλιτέ της Διάβασης είναι τα σουτζουκάκια και ο γύρος, ενώ διαθέτει μεγάλη ποικιλία σε ψητά της ώρας. 
-                    Συνοδέψτε τα με φρεσκοκομμένες τηγανιτές πατάτες, μελιτζανοσαλάτα ή ρώσικη, καθώς και με το αγαπημένο σας κρασί ή ποτό, αφού θα το 
-                    βρείτε σίγουρα μέσα από την μεγάλη κάβα που διαθέτει.
+                    να δηµιουργεί... πιστούς θαµώνες. 
+                    <span id="dots">...</span>
+                    <span id="more" style="display: none;"> Ξεκινώντας από τον Άγγελο Χαντακή, έναν από τους καλύτερους ψήστες στη Θεσσαλονίκη, 
+                        master του γύρου, σήµερα τα ηνία έχει αναλάβει η... επόµενη γενιά, 
+                        στην οποία ο ιδρυτής έχει µεταλαµπαδεύσει την εµπειρία τόσων χρόνων αλλά και το µεράκι του. 
+                        Συνδυάζοντας παραδοσιακά και µοντέρνα στοιχεία στην αισθητική του, 
+                        ξεχωρίζει εδώ και δεκαετίες για τα ζουµερά και πεντανόστιµα σουτζουκάκια του και φυσικά τον... διάσηµο γύρο του, 
+                        που συνοδεύονται άψογα από σπιτικές πατάτες, χειροποίητη ρώσικη αλλά και πληθωρικές δροσερές σαλάτες, 
+                        όλα από αγνές πρώτες ύλες. Δεν υπάρχει επώνυµος και µη Θεσσαλονικιός που να µην έχει περάσει από εδώ και να µην έχει φύγει µε τις 
+                        καλύτερες εντυπώσεις για την ποιότητα, τις χορταστικές µερίδες και τις εξαιρετικές τιµές. Στα συν η ενηµερωµένη κάβα ελληνικών κυρίως 
+                        κρασιών. Ο όμορφα διακοσμημένος χώρος, η υψηλού επιπέδου εξυπηρέτηση σε συνδυασμό με τις υψηλού επιπέδου γεύσεις θα σας 
+                        οδηγήσουν σε μια οικειότητα από την πρώτη κιόλας στιγμή. 
+                        Σπεσιαλιτέ της Διάβασης είναι τα σουτζουκάκια και ο γύρος, ενώ διαθέτει μεγάλη ποικιλία σε ψητά της ώρας. 
+                        Συνοδέψτε τα με φρεσκοκομμένες τηγανιτές πατάτες, μελιτζανοσαλάτα ή ρώσικη, καθώς και με το αγαπημένο σας κρασί ή ποτό, αφού θα το 
+                        βρείτε σίγουρα μέσα από την μεγάλη κάβα που διαθέτει.
+                    </span>
                 </p>
+                <button onclick="myFunction()" id="myBtn">Διαβάστε περισσότερα...</button>
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="thumbnail">
@@ -130,13 +140,32 @@
             </div>
         </section>
         <br>
-        
+
         <?php include 'rating.php'; ?> 
-        <?php include 'footer.php'; ?>
 
         <a href="#" class="topBtn"><i class="fas fa-chevron-up"></i></a>
         
         <!---------JavaScript--------->
         <script src="JavaScript.js"></script>
+        <script>
+            function myFunction() {
+                var dots = document.getElementById("dots");
+                var moreText = document.getElementById("more");
+                var btnText = document.getElementById("myBtn");
+
+                if (dots.style.display === "none") {
+                    dots.style.display = "inline";
+                    btnText.innerHTML = "Διαβάστε περισσότερα"; 
+                    moreText.style.display = "none";
+                } else {
+                    dots.style.display = "none";
+                    btnText.innerHTML = "Διαβάστε λιγότερα"; 
+                    moreText.style.display = "inline";
+                }
+            }
+        </script>
+
+    <?php include 'footer.php'; ?>
+
     </body>
 </html>

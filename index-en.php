@@ -1,5 +1,5 @@
 <?php
-    $conn = new mysqli('localhost', 'root', '', 'rating');
+    $conn = new mysqli('localhost', 'root', '', 'db_peftitsis');
 
     if (isset($_POST['save'])) {
         $uID = $conn->real_escape_string($_POST['uID']);
@@ -7,19 +7,19 @@
         $ratedIndex++;
 
         if (!$uID) {
-            $conn->query("INSERT INTO stars (rateIndex) VALUES ('$ratedIndex')");
-            $sql = $conn->query("SELECT id FROM stars ORDER BY id DESC LIMIT 1");
+            $conn->query("INSERT INTO rating (rateIndex) VALUES ('$ratedIndex')");
+            $sql = $conn->query("SELECT id FROM rating ORDER BY id DESC LIMIT 1");
             $uData = $sql->fetch_assoc();
             $uID = $uData['id'];
         } else
-            $conn->query("UPDATE stars SET rateIndex='$ratedIndex' WHERE id='$uID'");
+            $conn->query("UPDATE rating SET rateIndex='$ratedIndex' WHERE id='$uID'");
 
         exit(json_encode(array('id' => $uID)));
     }
-    $sql = $conn->query("SELECT id FROM stars");
+    $sql = $conn->query("SELECT id FROM rating");
     $numR = $sql->num_rows;
 
-    $sql = $conn->query("SELECT SUM(rateIndex) AS total FROM stars");
+    $sql = $conn->query("SELECT SUM(rateIndex) AS total FROM rating");
     $rData = $sql->fetch_array();
     $total = $rData['total'];
 
@@ -44,7 +44,7 @@
         <meta property="og:image" content="https://diavasi1977.eu/images/image9.JPG" />
         <meta property="og:description" content="Ψητοπωλείο ΔΙΑΒΑΣΗ από το 1977. Τα καλύτερα σουτζουκάκια!" />
         
-        <meta name="viewport" content="with=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Diavasi 1977</title>
         <link rel="stylesheet" href="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -59,42 +59,39 @@
             <nav>
                 <a href="index.php"><img src="images/logo.png"></a>
                 <div class="nav-links hidden-sm" id="navLinks">
-                <i class="fas fa-bars" onclick="showMenu()"></i>
+                    <i class="fas fa-bars" onclick="toggleMenu()"></i>
                     <ul>
-                        <li><a href="index.php">Homepage</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <!--<li><a href="menu.php">Μενού</a></li>-->
                         <li><a href="#info-section">About us</a></li>
                         <li><a href="#contact-section">Contact</a></li>
-                        <li><a href="index.php" language='english'>GR</a></li>
+                        <li><a href="index.php" language='greek'>GR</a></li>
                     </ul>
                 </div>
-                <i class="fas fa-bars" id="bars" onclick="hideMenu()"></i>
+                <i class="fas fa-bars" id="bars" onclick="toggleMenu()"></i>
             </nav>
             <video src="images/video.mp4" muted loop autoplay></video>
             <div class="overlay"></div>
         </section>
-        <!--<div class="backlogo">
-            <img src="images/logo.png" style="position: fixed; align-items: center; opacity: 0.010;">
-        </div>-->
 
-        <!----------INFO------------>
+        <!----------INFO----------->
         <div class="info">
             <section class="cards-area" id="info-section">
-                <h1>Who we are</h1><br>
+                <h1>Who we Are</h1><br>
                 <p class="text-justify">
-                One of the established values ​​for good food in the city, the restaurant Diavasi continues since 1977 to create ... 
-                faithful patrons. Starting from Angelos Chantakis, one of the best roasters in Thessaloniki, master of the tour, 
-                today the reins have been taken over by the ... next generation, in which the founder has mastered the experience of 
-                so many years and his little hand. Combining traditional and modern elements in its aesthetics, it stands out for decades 
-                for its juicy and delicious soutzoukaki and of course its ... famous round, which are perfectly accompanied by homemade 
-                potatoes, handmade Russian and exuberant fresh salads, all from fresh . There is not a single person from Thessaloniki 
-                who has not passed through here and has not left with the best impressions for the quality, the filling dishes and the 
-                excellent prices. Plus the updated wine cellar of mainly Greek wines. As for the service, ... its high level you will 
-                find out yourself! Beautifully decorated space, suitable to feel intimacy from the first moment. The specialties of Diavasi 
-                are the soutzoukaki and the gyros, while it has a great variety of grilled meats of the hour. Accompany them with freshly 
-                cut french fries, eggplant salad or Russian, as well as with your favorite wine or drink, since you will definitely find it 
-                through the large wine cellar.
-            </p>
+                    One of the established values ​​for good food in the city, the restaurant Diavasi continues since 1977 to create ... 
+                    faithful patrons. Starting from Angelos Chantakis, one of the best roasters in Thessaloniki, master of the tour, 
+                    today the reins have been taken over by the ... next generation, in which the founder has mastered the experience of 
+                    so many years and his little hand. Combining traditional and modern elements in its aesthetics, it stands out for decades 
+                    for its juicy and delicious soutzoukaki and of course its ... famous round, which are perfectly accompanied by homemade 
+                    potatoes, handmade Russian and exuberant fresh salads, all from fresh . There is not a single person from Thessaloniki 
+                    who has not passed through here and has not left with the best impressions for the quality, the filling dishes and the 
+                    excellent prices. Plus the updated wine cellar of mainly Greek wines. As for the service, ... its high level you will 
+                    find out yourself! Beautifully decorated space, suitable to feel intimacy from the first moment. The specialties of Diavasi 
+                    are the soutzoukaki and the gyros, while it has a great variety of grilled meats of the hour. Accompany them with freshly 
+                    cut french fries, eggplant salad or Russian, as well as with your favorite wine or drink, since you will definitely find it 
+                    through the large wine cellar.
+                </p>
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="thumbnail">
@@ -123,16 +120,16 @@
             <div class="row">
                 <div class="col-sm-3">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12112.08614860259!2d22.947726!3d40.629407!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x48a806ff0ab3b407!2sAFES%20CHANTAKI%20O.E.%7C%7CDIAVASI%201977!5e0!3m2!1sen!2sgr!4v1639141869970!5m2!1sen!2sgr" width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>                    
-                        <p><i class="fas fa-map-marker-alt " style="color: #000;"></i><a href="https://goo.gl/maps/sUrVfhtbSKUC9ACv5" target="_blanc"> Pavlou Mela 13, Thessaloniki 54622</a><br><br> </p>
+                        <p><i class="fas fa-map-marker-alt " style="color: #000;"></i><a href="https://goo.gl/maps/sUrVfhtbSKUC9ACv5" target="_blanc"> Παύλου Μελά 13, Θεσσαλονίκη 54622</a><br><br> </p>
                         <i class="fas fa-phone " style="color: #000; transform: rotateY(180deg);"></i><a href="tel:+30 +30 2310220596"> +30 2310 220596</a><br><br> 
-                        <i class="fas fa-envelope " style="color: #000;"></i><a href="https://mail.google.com/mail/u/0/#inbox?compose=VpCqJTDGxfFzQsZtKhxbJMVWmmfshqTHqGsmkXZfgKTTXMfgxkhnxvbSscRDXpggXlDhRtb"> diavasi1977@gmail.com</a>
+                        <i class="fas fa-envelope " style="color: #000;"></i><a href="https://mail.google.com/mail/u/0/#inbox?
+                        compose=VpCqJTDGxfFzQsZtKhxbJMVWmmfshqTHqGsmkXZfgKTTXMfgxkhnxvbSscRDXpggXlDhRtb"> diavasi1977@gmail.com</a>
                 </div>
             </div>
         </section>
         <br>
-        
-        <?php include 'rating-en.php'; ?>
-        
+
+        <?php include 'rating-en.php'; ?> 
         <?php include 'footer.php'; ?>
 
         <a href="#" class="topBtn"><i class="fas fa-chevron-up"></i></a>

@@ -1,0 +1,14 @@
+One of the established values ​​for good food in the city, the restaurant Diavasi continues since 1977 to create ... 
+faithful patrons. Starting from Angelos Chantakis, one of the best roasters in Thessaloniki, master of the tour, 
+today the reins have been taken over by the ... next generation, in which the founder has mastered the experience of 
+so many years and his little hand. Combining traditional and modern elements in its aesthetics, it stands out for decades 
+for its juicy and delicious soutzoukaki and of course its ... famous round, which are perfectly accompanied by homemade 
+potatoes, handmade Russian and exuberant fresh salads, all from fresh . There is not a single person from Thessaloniki 
+who has not passed through here and has not left with the best impressions for the quality, the filling dishes and the 
+excellent prices. Plus the updated wine cellar of mainly Greek wines. As for the service, ... its high level you will 
+find out yourself! Beautifully decorated space, suitable to feel intimacy from the first moment. The specialties of Diavasi 
+are the soutzoukaki and the gyros, while it has a great variety of grilled meats of the hour. Accompany them with freshly 
+cut french fries, eggplant salad or Russian, as well as with your favorite wine or drink, since you will definitely find it 
+through the large wine cellar.
+
+    $conn = new mysqli('127.0.0.1', 'peftitsis', 'n5T44ke2PkqZ5KWpEWeD3gh', 'db_peftitsis');

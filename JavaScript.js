@@ -21,8 +21,18 @@ function hideMenu()
 {
     navLinks.style.right = "0px";
 }
-const toTop = document.querySelector(".topBtn");
 
+window.addEventListener("scroll", () => 
+{
+    if (window.pageYOffset > 400)
+    {
+        navLinks.classList.add("hidden-sm");
+        document.getElementById('bars').classList.remove("bars-close");
+    }
+}) 
+
+
+const toTop = document.querySelector(".topBtn");
 window.addEventListener("scroll", () => 
 {
     if (window.pageYOffset > 100)
@@ -34,6 +44,16 @@ window.addEventListener("scroll", () =>
         toTop.classList.remove("active");
     }
 })   
+
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+
     document.querySelector('video').playbackRate = 0.9;
 
     const Logo = document.querySelector(".backlogo");
