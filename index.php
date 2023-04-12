@@ -1,5 +1,5 @@
 <?php
-    $conn;
+    $conn = new mysqli('', '', '', '');
 
     if (isset($_POST['save'])) {
         $uID = $conn->real_escape_string($_POST['uID']);
