@@ -1,5 +1,5 @@
 <?php
-    $conn = new mysqli('localhost', 'root', '', 'db_peftitsis');
+    $conn = new mysqli('', '', '', '');
 
     if (isset($_POST['save'])) {
         $uID = $conn->real_escape_string($_POST['uID']);
